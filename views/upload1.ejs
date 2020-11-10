@@ -1,0 +1,108 @@
+<% include ../views/header %>
+
+<% if (typeof error !== 'undefined' && error != null){ %>
+<div class="col-ms-12 text-center">
+  <div class="alert alert-danger" role="alert">
+    <%= error %>
+  </div>     
+</div>
+<% } else {%>    
+<div class="col-ms-12 text-center">
+  <img id="loadingGif" class="hidden" src="/images/loading.gif">
+  <div id="uploadPageAlert" class="alert hidden" role="alert">
+  </div>     
+</div>
+<% } %>    
+
+<!-- MultiStep Form -->
+<div class="row">
+    <div class="col-md-12 ">
+        <form ref='uploadForm' id='uploadForm' action="/upload" method="post" encType="multipart/form-data">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Personal Details</li>
+                <li>Data Details</li>
+                <li>Files</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Personal Details</h2>
+                <h3 class="fs-subtitle">Please Fill Your Personal Information</h3>
+                <input class="col-md-5" id="uploadFormFname" type="text" name="fname" placeholder="First Name" required="true"  oninput="validateStep(1)" onfocusout="validateStep(1)"/>
+                <input class="col-md-5" id="uploadFormLname" type="text" name="lname" placeholder="Last Name" required="true"  oninput="validateStep(1)" onfocusout="validateStep(1)" />
+                <input class="col-md-5" id="uploadFormEmail" type="email" name="email" placeholder="Email" oninput="validateStep(1)"  onfocusout="validateStep(1)"/>
+                <input class="col-md-5" id="uploadFormInstitute" type="institute" name="institute" placeholder="Institution Affiliation" onchange="validateStep(1)" onfocusout="validateinstitute()"/>
+
+                <div class="col-md-5 text-left">
+                  <label>Data Type</label>
+                  <select name="dataType" required="true">
+                    <option value = "reflectance">reflectance</option>
+                  </select>
+                </div>
+                <div class="col-md-5 text-left">
+                  <label>Data Source</label>
+                  <select name= "dataFrom" required="true">
+                    <option value = "field">Field</option>
+                    <option value = "museum">Museum</option>
+                  </select>
+                </div>
+                <div class="col-md-12"></div>
+                <input type="button" name="next" id="uploadFormStep1NextButton" class="next action-button" value="Next"  onfocus="validateStep(1)" onclick="validateStep(1)"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Data Details</h2>
+                <h3 class="fs-subtitle">Has The Data Been Published?</h3>
+                <select class="col-md-5 data-published-select" id="uploadFormDataPublished" name="dataPublished" required="true" onchange="validateStep(2)">
+                  <option value = "0">No yet!</option>
+                  <option value = "1">Yes</option>
+                </select>
+                <div class="col-md-12 data-published-section hidden">               
+                  <input class="col-md-5" type="text" id="uploadFormReference" name="reference" placeholder="Citation of the publication" oninput="validateStep(2)"  onfocusout="validateStep(2)"/>
+                  <input class="col-md-5" type="text" id="uploadFormDoi" name="doi" placeholder="Digital object identifier" oninput="validateStep(2)"  onfocusout="validateStep(2)"/>
+                </div> 
+                <h3 class="fs-subtitle">Do You Want to Place an Embargo On The Data?</h3>
+                <select class="col-md-5 data-embargo-select" name="dataEmbargo" required="true" onchange="validateStep(2)">
+                  <option value = "0">No</option>
+                  <option value = "1">Yes</option>
+                </select> 
+                <% if (typeof moment !== 'undefined'){ %>
+                  <input class="col-md-5 embargoDatePicker hidden" type="date" name="embargoDate"
+                  value="<%= moment().format('YYYY-MM-DD'); %>" min="<%= moment().format('YYYY-MM-DD'); %>" max="<%= moment().add(1, 'years').format('YYYY-MM-DD'); %>" oninput="validateStep(2)"  onfocusout="validateStep(2)">
+                  <% } else {%>
+                  <input class="col-md-5 embargoDatePicker hidden" type="date" name="embargoDate" oninput="validateStep(2)"  onfocusout="validateStep(2)">
+                <% }%>
+                <div class="col-md-12"></div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" id="uploadFormStep2NextButton" name="next" class="next action-button" value="Next" onfocus="validateStep(2)" onclick="validateStep(2)"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Files</h2>
+                <h3 class="fs-subtitle">MetaData File</h3>
+                <div class="col-md-12 input-group mx-auto" style="white-space: nowrap;">
+                    <label class="">
+                        <span class="btn btn-primary multi-form-file-btn">
+                            Browse&hellip; <input type="file" style="display: none;" id="fileSelect" name="metaFile" required accept=".csv">
+                        </span>
+                    </label>
+                    <input class="col-md-10 multi-form-file-text" type="text" class="form-control" readonly>
+                </div>
+                <h3 class="fs-subtitle">Raw Files (compressed into a single zip file)</h3>
+                <div class="col-md-12 input-group mx-auto" style="white-space: nowrap;">
+                    <label class="" id="rawFileSelectLabel">
+                        <span class="btn btn-primary multi-form-file-btn">
+                            Browse&hellip; <input type="file" style="display: none;" id="rawFileSelect" name="rawFile" accept="application/zip">
+                        </span>
+                    </label>
+                    <input class="col-md-10 multi-form-file-text" type="text" class="form-control" readonly >
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <button type="submit" id="uploadFormSubmitButton" class="multi-form-submit-btn" value="Upload!" onfocus="validateStep(3)">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<% include ../views/footer %>
+
+<!-- jQuery and the Form Plugin-->
+<script src="http://malsup.github.com/jquery.form.js"></script> 

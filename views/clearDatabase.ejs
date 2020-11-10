@@ -1,0 +1,48 @@
+<% include ../views/header %>
+
+<% if (typeof error !== 'undefined' && error != null){ %>
+<div class="col-ms-12 text-center">
+  <div class="alert alert-danger" role="alert">
+    <%= error %>
+  </div>     
+</div>
+<% } else {%>    
+<div class="col-ms-12 text-center">
+  <img id="loadingGif" class="hidden" src="/images/loading.gif">
+  <div id="searchPageAlert" class="alert hidden" role="alert">
+  </div>     
+</div>
+<% } %>    
+
+
+<!-- -->
+
+<style type="text/css">
+  .searchForm fieldset .serach-query-row{
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .searchForm fieldset .serach-query-row{
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<!-- MultiStep Form -->
+<div class="row">
+  <div class="col-md-12 ">
+    <div ref='searchForm' class="searchForm" id='uploadForm'>
+      <fieldset>
+        <h4 class="mb-3">Clear Database </h4>
+        <form ref='searchTermForm' class="searchTermForm" action="/search/clearAll" method="get">
+          <button type="submit" id="" class="multi-form-submit-btn" 
+                  style="background: red !important;" value="Search!">Delete</button>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+</div>
+<br>
+
+<% include ../views/footer %>

@@ -1,0 +1,65 @@
+When task is completed, delete from TO DO
+
+## To complete before launch of beta
+
+1) Allow 'READ ME' file to be uploaded along with submission
+2) Allow for submissions that allow both field and museum based measurements
+3) In submission history, remove email and submitter and change for reference of published paper (NA if not available)
+4) Maintain search terms in query fields when presenting search results
+5) Allow 'modify submission' to change embargo
+    - This should allow removing of shortening the embargo, or extending to the maximum of one year
+    from initial submission
+6) Option to browse by submission
+7) Results shoud include number of individuals as an added column
+8) Transfer 'Delete database' and 'Manage search term' to admin login only
+
+CURRENT INTERFACE
+
+- Fix text main page under Search, Upload data, Join
+- Add info in FAQ
+- Add link to Contact us page
+- Add link to About
+
+
+DATA SUBMISSION
+
+
+VALIDATION
+
+- Avoid users submitting same raw data file in 2 different submissions?
+
+
+NEW FUNCTIONALITY
+
+- Add data licencing information to submission process (CC-BY-NC)
+- Add data licencing information to FAQ
+- Add functionality (New interface page)- Search by submission (Dublin core search) -> returns information about submission
+- Add functionality (New download result) - Download needs to return Dublin core metadata in different table for ease of referencing
+- Add data licencing information to downloaded Dublin core metadata
+- Validate museum specimen metadata through Vertnet API
+- Search results add column to indicate number of individuals for each unique metadata set (use catalogueNumber - Museum, and UniqueID - Field)
+- User profile should present list of previous submission that can be looked at and modified
+
+R SCRIPT    
+
+- Use lightr instead of pavo for getspec
+- Finalize calculation of metrics
+- Allow for upload of files that use coma delimiter rather than period (see 'decimal' parameter in getspec R script)
+
+LONG TERM WISH LIST
+
+- Georeferencing
+- Colourspace search
+    - Dichromat
+    - Trichromat
+    - Tetrachromat
+        - Bird VIS
+        - Bird UV
+    - Human
+    - Bee
+- Have a statistics page
+    - How many files
+    - How many taxa
+    - How many datasets
+    - How many files downloaded
+

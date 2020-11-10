@@ -1,0 +1,12 @@
+MONGODB START COMMAND:
+	sudo systemctl start mongod
+
+NODEJS COMMAND:
+	
+	Find the proccess ID: 
+		lsof -i tcp:3000
+	Kill proccess:	
+		kill -9 6231
+	Run app: 
+		node app.js
+

@@ -1,0 +1,80 @@
+<% include ../views/header %>
+
+<% if (typeof error !== 'undefined' && error != null){ %>
+<div class="col-ms-12 text-center">
+  <div class="alert alert-danger" role="alert">
+    <%= error %>
+  </div>     
+</div>
+<% } else {%>    
+<div class="col-ms-12 text-center">
+  <img id="loadingGif" class="hidden" src="/images/loading.gif">
+  <div id="searchPageAlert" class="alert hidden" role="alert">
+  </div>     
+</div>
+<% } %>    
+
+
+<!-- -->
+
+<style type="text/css">
+  .searchForm fieldset .serach-query-row{
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .searchForm fieldset .serach-query-row{
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<!-- MultiStep Form -->
+<div class="row">
+  <div class="col-md-12 ">
+    <div ref='searchForm' class="searchForm" id='uploadForm'>
+      <fieldset>
+        <h4 class="mb-3" style="font-weight:bold">Current Search Terms </h4>          
+          <% if (typeof searchTerms !== 'undefined' && searchTerms != null){ %>
+            <% console.log(searchTerms); for (var i = 0; i < searchTerms.length; i++) { %>
+              <form ref='searchTermForm' class="searchTermForm" method="post">
+                <input type="text" class="form-control" name="Id" id="<%= searchTerms[i].Name %>Id" value="<%= searchTerms[i]._id %>" readonly="readonly" hidden="hidden">
+                <div class="col-md-3">
+                  <input type="text" class="form-control" name="Name" id="<%= searchTerms[i].Name %>Name" value="<%= searchTerms[i].Name %>" disabled="disabled">
+                </div>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" name="Placeholder" id="<%= searchTerms[i].Name %>Placeholder" value="<%= searchTerms[i].Placeholder %>">
+                </div>
+                <div style="display: inline-flex;line-height: 11px;">
+                  <input type="checkbox" name="isEnabled" <% if(searchTerms[i].Enabled){ %>checked <%}%>>
+                  <label for="isEnabled" style="width: 80px;" >Enabled</label>
+                </div>
+                <button type="submit" id="" class="button" style="background-color: lightslategrey" formaction="/searchTerms/edit">Update</button>
+                <button type="submit" id="" class="button"  formaction="/searchTerms/delete" >Delete!</button>
+              </form>
+            <% } %>
+          <% } %>  
+        <hr>
+        <hr>
+        <h4 class="mb-3">Add New Search Terms </h4>
+        <form ref='searchTermForm' class="searchTermForm" action="/searchTerms/add" method="post">
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="Name" value="" placeholder="name">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="Placeholder" value="" placeholder="placeholder">
+          </div>
+          <div style="display: inline-flex;line-height: 11px;">
+            <input type="checkbox" name="isEnabled" checked="true">
+            <label for="isEnabled" style="width: 80px;" >Enabled</label>
+          </div>
+          <button type="submit" id="" class="multi-form-submit-btn" 
+                  style="background: teal !important;" value="Search!">Add</button>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+</div>
+<br>
+
+<% include ../views/footer %>

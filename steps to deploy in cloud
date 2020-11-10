@@ -1,0 +1,69 @@
+1. Install Nodejs
+	-sudo apt-get update
+	-sudo apt update
+	-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+	-sudo apt -y install nodejs
+
+
+2. Install MongoDB
+
+	-wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+	-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+	-sudo apt-get install -y mongodb-org
+	-sudo systemctl status mongod
+	-sudo systemctl enable mongod
+
+3. Install R
+
+	-sudo apt-get install libmagick++-dev
+	-sudo apt-get install -y libxml2-dev libcurl4-openssl-dev libssl-dev
+
+3.a. version >3.5
+
+	-sudo bash -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/" >> /etc/apt/sources.list' && sudo apt-key adv --k
+eyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && sudo apt update
+	-sudo apt install r-base
+
+3.b. install neccesary package
+	-install.packages(c("pavo", "rjson"))
+	-install.packages(c("lightr"))
+
+
+4. Install Git
+ 	-sudo apt install git-all
+
+5. Install pm2
+	-npm install pm2 -g
+	-pm2 start app.js
+
+6. Firewall Setup
+
+	-sudo ufw enable
+	-sudo ufw allow http
+	-sudo ufw allow https
+	-sudo ufw allow ssh
+
+7. NGINX setup
+
+	setup-https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
+	configure-https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

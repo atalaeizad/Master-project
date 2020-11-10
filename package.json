@@ -1,0 +1,39 @@
+{
+  "name": "npsexpress",
+  "version": "0.0.0",
+  "engines": {
+    "node": "12.13.1"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --ignore uploads/ --ignore public/scripts app.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "body-parser": "^1.19.0",
+    "busboy": "^0.3.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "2.7.1",
+    "express": "~4.16.1",
+    "express-session": "^1.10.1",
+    "fs": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "jquery-form": "^4.3.0",
+    "json2csv": "^4.5.4",
+    "lodash": "^4.17.20",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.7",
+    "morgan": "~1.9.1",
+    "node-zip": "^1.1.1",
+    "nodemailer": "^6.3.1",
+    "passport": "^0.4.1",
+    "passport-orcid": "0.0.4",
+    "request": "^2.88.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

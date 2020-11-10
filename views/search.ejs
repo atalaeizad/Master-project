@@ -1,0 +1,190 @@
+<% include ../views/header %>
+
+<% if (typeof error !== 'undefined' && error != null){ %>
+<div class="col-ms-12 text-center">
+  <div class="alert alert-danger" role="alert">
+    <%= error %>
+  </div>     
+</div>
+<% } else {%>    
+<div class="col-ms-12 text-center">
+  <img id="loadingGif" class="hidden" src="/images/loading.gif">
+  <div id="searchPageAlert" class="alert hidden" role="alert">
+  </div>     
+</div>
+<% } %>    
+
+
+<!-- -->
+
+<style type="text/css">
+  .searchForm fieldset .serach-query-row{
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .searchForm fieldset .serach-query-row{
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<!-- MultiStep Form -->
+<div class="row">
+  <div class="col-md-12 ">
+    <form ref='searchForm' class="searchForm" id='uploadForm' action="/search" method="post">
+      <!-- progressbar 
+      <ul id="progressbar">
+        <li class="active">Query</li>
+        <li>Refine by Geo-Region</li>
+        <li>Refine by Color Space</li>
+      </ul>
+    -->
+      <fieldset>
+        <h4 class="mb-3">Search Query </h4>
+          <!--
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="institutioncode" id="institutioncode" placeholder="Institution code" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="collectioncode" id="collectioncode" placeholder="Collection code" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="cataloguenumber" id="cataloguenumber" placeholder="Catalogue number" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="class" id="class" placeholder="Class" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="order" id="order" placeholder="Order" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="family" id="family" placeholder="Family" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="genus" id="genus" placeholder="Genus" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="specificepithet" id="specificepithet" placeholder="Specific epithet" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="infraSpecificepithet" id="infraSpecificepithet" placeholder="Intraspecific Epithet" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="sex" id="sex" placeholder="Sex" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="lifestage" id="lifestage" placeholder="Life stage" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="country" id="country" placeholder="Country" value="">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" name="patch" id="patch" placeholder="Patch" value="">
+          </div>
+          -->
+          <% if (typeof searchTerms !== 'undefined' && searchTerms != null){ %>
+            <% console.log(searchTerms); for (var i = 0; i < searchTerms.length; i++) { %>
+              <div class="col-md-3">
+                <input type="text" class="form-control" name="<%= searchTerms[i].Name %>" 
+                  id="<%= searchTerms[i].Name %>" placeholder="<%= searchTerms[i].Placeholder %>" 
+                  value="">
+              </div>
+            <% } %>
+          <% } %>  
+
+        <button style="display: block; margin: auto;" type="submit" id="" class="btn btn-primary" value="Search!">Search</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<br>
+
+<!-- Search Form -->
+<div class="row">
+    <div class="col-md-12 ">
+          <% if (typeof searchResult !== 'undefined' && searchResult != null){ %>
+          <div class="col-ms-12 text-center">
+            <div class="alert alert-success" role="alert" style="line-height: 40px;">
+              Displaying <%= searchResult.length %> Unique Results 
+              <% if (searchResult.length > 0 ){ %>
+              (Found <%= searchResult[0].TotalSearchResultCount %> in Total)! 
+              <!--<button type="button" class="btn btn-primary" style="position: absolute; right: 10px;" onclick="downloadAllResults()">Download All</button>-->         
+              <form ref='downloadForm' class="downloadForm" id='downloadForm' action="/search/downloadSearchResult" method="post">
+                <fieldset>
+                  <input type="text" class="form-control hidden" name="SearchResultId" id="SearchResultId" placeholder="SearchResultId" value="<%= searchResult[0].SearchResultId %>">
+                  <button type="submit" id="" class="btn btn-primary" value="Download All!">Download</button>
+                </fieldset>
+              </form>
+              <% } %>    
+            </div>     
+          </div>
+          <% } %>  
+    </div>
+</div>
+<% if(searchResult !== null){%>
+<div class="table-responsive" style="background: white;">
+        <table class="table table-hover text-center" >
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Genus</th>
+              <th scope="col">Specific Epithet</th>
+              <!-- <th scope="col">Infraspecific Epithet</th> -->
+              <th scope="col">Sex</th>
+              <th scope="col">Lifestage</th>
+              <th scope="col">Patch</th>
+              <th scope="col">Count</th>
+              <!-- <th scope="col">url</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <% if(searchResult !== null){ %>
+              <% for (var i = 0; i < searchResult.length; i++) { %>
+                <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%= searchResult[i].genus %></td>
+                  <td><%= searchResult[i].specificepithet %></td>
+                  <!-- <td><%= searchResult[i].infraspecificepithet %></td> -->
+                  <td><%= searchResult[i].sex %></td>
+                  <td><%= searchResult[i].lifestage %></td>
+                  <td><%= searchResult[i].patch %></td>
+                  <td><%= searchResult[i].count %></td>
+                  <!-- <td><a class="btn" href="<%= searchResult[i].url %>">Download</a></td> -->
+                  <td class="hidden metaID"><%= searchResult[i]._id %></td>
+                </tr>    
+              <% } %>          
+            <% } %>
+          </tbody>
+        </table>
+</div>
+<% } %>
+<% include ../views/footer %>
+
+<script type="text/javascript">
+function downloadAllResults() {
+  var requestedData =  $(".metaID").map(function(){
+    return $(this).context.textContent;
+  }).get();
+  $.post( "/search/download", {ids: JSON.stringify(requestedData)},function(retData) {
+      console.log(retData);
+      download("researchData.zip", retData);
+
+      $("body").append("<iframe src='" + retData.url+ "' style='display: none;' ></iframe>");
+    } 
+  );
+
+  function download(filename, data) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;base64,' + data);
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  }
+}
+</script>

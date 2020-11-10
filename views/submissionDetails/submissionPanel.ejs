@@ -1,0 +1,55 @@
+<% include ../header %>
+
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col ">
+            <h3 style="text-align: center; font-weight:bold;color: black;">Submission Details!  </h3>
+<br>
+<div class="table-responsive" style="background: white;">
+            <% if (submissions && submissions.length > 0) { %>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Submission ID</th>
+                        <th scope="col">Submitter</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Data Type</th>
+                        <th scope="col">Data source</th>
+                        <th scope="col">Date</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for (let i = 0; i < submissions.length; i++) { %>
+                        <tr>
+                            <td scope="row"><%= i + 1 %></td>
+                            <td><%= submissions[i].submissionId %></td>
+                            <td><%= submissions[i].name %></td>
+                            <td><%= submissions[i].email %></td>
+                            <td><%= submissions[i].typeOfData %></td>
+                            <td><%= submissions[i].dataFrom %></td>
+                            <td><%=  moment(submissions[i].releaseDate).format('YYYY-MM-DD') %></td>
+                           
+                            <td>
+                                <!-- <a role="button" class="btn btn-success" href="/modify/<%= submissions[i]._id %>"> -->
+                                    <a role="button" class="btn btn-success" href="/submission/<%= submissions[i].submissionId %>">
+                                    Modify
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <div class="alert alert-success text-center" role="alert">
+                    <p>No submission yet. Please go to homepage and start your submission!</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+</div>
+
+<% include ../footer %>

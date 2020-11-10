@@ -1,0 +1,56 @@
+<% include ../views/header %>
+<div class="container pt-3">
+
+<div class="row">
+    <div class="col ">
+        <h4 style="text-align: justify; font-weight:bold;color:teal">Submission Process</h4>
+    </div>
+</div>
+<hr>
+
+ <div class="row">
+    <div class="col ">
+        <h5 style="text-align: justify">Instructions:</h5>
+        <p align="justify">
+            <br>
+            General reminders and suggestions for publishing your data with Nature's Palette:
+            <br>
+            <br>
+            We accept metedata in .csv formats and raw files in archive format.
+            Any data submitted will be published under the CC0 license. We do not currently support any other license types, nor do we allow for restrictions on data access or use. 
+            <br>
+            <br>
+            It is your responsibility to ensure your data are being shared responsibly and ethically. Please be careful about sharing sensitive data and ensure you are complying with institutional and governmental regulations
+            When preparing your complete version of a dataset, remember to collate all relevant explantory documents and metadata. This includes relevant documentation necessary for the re-use and replication of your dataset (e.g., readme.txt files, formal metadata records, or other critical information)
+          </p>
+    </div>
+ </div>
+
+<hr>
+<div class="row">
+  <div class="col">
+      <h5 style="text-align: justify;">Submission Template</h5>
+    <form ref='' id='uploadForm' action="" method="">
+    <fieldset>
+      <div class="card-body" style="background-color:white">
+          <h5 style="text-align: center">Template for Reflectance metadata</h5>
+          <button type="button" class="btn btn-link"><a href="/templates/FieldReflectance.csv" download>Field</a></button>
+          <button type="button" class="btn btn-link"><a href="/templates/MuseumReflectance.csv" download>Museum</a></button> <br>
+          <button type="button" class="btn btn-link"><a href="/templates/Field Reflectance README.txt" download>README on Field Reflectance</a></button>
+          <button type="button" class="btn btn-link"><a href="/templates/Museum Reflectance README.txt" download>README on Museum Reflectance</a></button>
+      </div><br>
+      <!--<div class="card-body" style="background-color:white">
+          <h5 style="text-align: center">Template for Transmittance metadata</h5>
+          <button type="button" class="btn btn-link"><a href=""><p>Field</p></a></button>
+          <button type="button" class="btn btn-link"><a href=""><p>Museum</p></a></button>
+      </div><br>
+      <div class="card-body" style="background-color:white">
+          <h5 style="text-align: center"><p>Template for irradiace metadata</p></h5>
+          <button type="button" class="btn btn-link"><a href=""><p>Field</p></a></button>
+      </div> -->
+    </fieldset>
+    </form>
+  </div>
+  </div>
+</div>
+<% include ../views/footer %>

@@ -1,0 +1,104 @@
+<% include ../header %>
+
+
+<!-- <div class="container" style="width:70%; margin: auto"> -->
+<div class="container pt-3">
+
+    <div class="row justify-content-center align-items-centers">
+        <div class="col">
+            <h3 style="text-align: center; color: black;">Submission Modification!  </h3>
+            <hr>
+            <br>
+
+            <% if (typeof message !== 'undefined'){ %>
+                <div class="col-ms-12 text-center">
+                    <div class="alert alert-success" role="alert">
+                        <%= message %>
+                    </div>     
+                </div>
+            <% } else { %> 
+            <% if (typeof error !== 'undefined' && error != null){ %>
+                <div class="col-ms-12 text-center">
+                    <div class="alert alert-danger" role="alert">
+                    <p>
+                    <%= error %>
+                    </p>
+                    </div>     
+                </div>
+            else {%>    
+                <div class="col-ms-12 text-center">
+                    <img id="loadingGif" class="hidden" src="/images/loading.gif">
+                    <div id="uploadPageAlert" class="alert hidden" role="alert">
+                    </div>  
+                    <br/> 
+                    <div id="progress" class="text-center hidden">
+                    <div id="bar"></div>
+                    <div id="percent">0%</div >
+                    <div id="message"></div>
+                    </div>
+                </div>
+            <% } %> 
+            <br>
+
+            <form action="/submission/<%= submissionId %>" 
+                id="uploadForm"
+                class="was-validated justify-content-center"
+                method="POST"
+                enctype="multipart/form-data">
+                <input type="hidden" name="submissionId" value="<%= submissionId %>">
+                <!-- <div class="form-row">
+                    <label>
+                        Metadata File
+                        <span>(Upload file that contains modification information and metadata for the raw files)</span>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <input type="file" class="custom-file-input" name="metadata" required>
+                        <label class="custom-file-label">Choose file</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>
+                        Raw Files
+                        <span>(Upload raw files into a compressed format. Prefer for .zip)</span>
+                    </label>
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group col-md-7">
+                        <input type="file" class="custom-file-input" name="rawFile" required>
+                        <label class="custom-file-label">Choose file</label>
+                    </div>
+                </div> -->
+                <fieldset>
+                    <h6 style=font-weight:bold;>Submission ID: <%= submissionId %></h6>
+                    <hr>
+        
+                    
+                    <div class="col-md-6 input-group mx-auto text-left" >
+                    
+                        <h3 class="fs-subtitle text-left">MetaData File</h3>
+                        <input type="file" style="background-color: white;" id="fileSelect" name="metaFile" required="true" accept=".csv">
+                    </div>
+                    <br>
+                
+                    <br>
+                    <div class="col-md-6 input-group mx-auto" style="white-space: nowrap;">
+                        <h3 class="fs-subtitle text-left">Raw Files (compressed into a single zip file)</h3>
+                        <input type="file" style="background-color: white;" id="rawFileSelect" name="rawFile" accept="application/zip" required>    
+                    </div>
+                <br>
+            
+
+                <button type="submit" id="uploadFormSubmitButton" class="multi-form-submit-btn" value="Upload!" onfocus="validateStep(3)">Submit</button>
+                    
+                </fieldset>
+                
+            </form>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% include ../footer %>
+

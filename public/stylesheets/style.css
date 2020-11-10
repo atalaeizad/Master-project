@@ -1,0 +1,206 @@
+html{
+    overflow-x: hidden;
+}
+
+body {
+  
+  min-height: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-bottom: 1rem;
+  background-color: white;
+}
+/*body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+  }*/
+
+main{
+    min-height: 570px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar{
+    min-height: 60px;
+}
+/* .nav-item:hover{
+	border-bottom: 1px solid white;
+} */
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: .25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 11rem;
+  padding: .5rem 0;
+  margin: .125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+}
+main .main-page-btn{		
+    border-radius: 0px;
+    width: 150px;
+    height: 64px;
+    text-align: center;
+    line-height: 44px;
+    background: #61441970;
+    border: #ffffff57 1px solid;
+    font-size: large;
+}
+
+main .main-page-btn:hover{
+    color: #fff;
+    background-color: #61441970;
+    border-color: #fff;
+}
+main .main-page-btn:active{
+    color: #fff !important;
+    background-color: #614419 !important;
+    border-color: #614419  !important;
+}
+
+.jumbotron{
+	
+	min-height: 360px;
+	padding-top: 120px;
+}
+.jumbotron h1{
+	color: #fff;
+}
+.jumbotron h6{
+	color: #fff;
+}
+
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+
+
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+.button:hover {opacity: 1}
+
+div.alert{
+    font-size: medium;
+    font-weight: 600;
+    line-height: 135%;
+}
+
+div.alert-success{
+    color: #155724;
+    background-color: #d4eddaa1;
+    border-color: #c3e6cb;
+}
+
+div.alert-danger{
+    color: #721c24;
+    background-color: #f8d7daa1;
+    border-color: #d66f7a;
+}
+
+  
+  
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 3rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 1rem;
+    z-index: 10;
+  }
+
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 25rem;
+    width: 100%;
+    background-color: #777;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25rem;
+  }
+  
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+#connect-orcid-button{
+	border: 1px solid #D3D3D3;
+	padding: .3em;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 1px 1px 3px #999;
+	cursor: pointer;
+	color: #999;
+	font-weight: bold;
+	font-size: .8em;
+	line-height: 24px;
+	vertical-align: middle;
+}
+
+.table1 {
+  width: 50%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+@import "/MultiStepForm.css";

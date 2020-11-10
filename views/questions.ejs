@@ -1,0 +1,86 @@
+<% include ../views/header %>
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col ">
+            <h4 style="text-align: justify; font-weight:bold; color:darkred;font-weight:bold;">Frequently Asked Questions</h4>
+                <hr>
+                <p style="font-size: normal;text-align: left;line-height: 25px;">  
+                    <h5 style="text-align: left; font-weight:bold;"># What types of data does Nature's Palette accept?</h5>
+                    <p style="text-align: left"> For now, the repository only accepts reflectance data (relative radiance) taken from plants and animals either 
+                    from museum specimens or from field data collection. Eventually, the repository will also accept irradiance measurements from natural sources 
+                    and the transmission properties of natural substrates.
+                    </p>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />The data submitted are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+                    <p>
+
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># What file format should I upload?</h5>
+                    <p style="text-align: left"> All submissions have to contain 1) a single metadata 'csv' file, 2) a 'zip' folder containing the raw spectral measurements, and 3) one or more associated files such as a 'READ ME' document. 
+                    The content of the metadata file should follow the recommended template format found <a href="/startUpload">here</a>. The 'zip' folder can accept all types of spectral files 
+                    currently parsed by the R package 'lightr'. For a complete list of file types visit the 
+                    <a href="https://cran.r-project.org/web/packages/lightr/index.html">lightr</a> package's help documentation. More than one raw file type can
+                    be included in a single 'zip' folder.</p>
+                    <p>
+                    
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># What are the submission file size limits?</h5>
+                    <p style="text-align: left"> Submissions themselves are not limited by file size. Nature's Palette will accept submissions of any size. However,
+                    the numer of files to be uploaded will determine how they will be submitted. Windows users will find that compressing more than 10,000 to 50,000 
+                    files into a 'zip' file takes too much time. The same process takes much less time for Linux and Mac users. Any submission that requires the transfer 
+                    of a very large number of files is best accomplished by sending a flash drive directly to us. For more information, or if you have issues with submissions,
+                    please contact us <a href="/contact">here</a>. </p>
+                    <p>
+
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># How much does it cost?</h5>
+                    <p style="text-align: left"> All functions in Nature's Palette will always be free to use. We gratefully acknowledge the funding support for this 
+                    project <a href="/contact">here</a>.</p>
+                    <p>
+
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># Do the data have to be associated with a publication?</h5>
+                    <p style="text-align: left"> No, we will gladly accept data that has never made it into published work.
+                    If your data are used in a manuscript under review, it is possible to submit with an embargo, which can be removed following acceptance of the article for publication.</p>
+                    <p>
+
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># How should I prepare my data before submitting?</h5>
+                    <p style="text-align: left"> Contributors should follow the instructions provided in the appropriate README files found <a href="/startUpload">here</a>. 
+                    For now, we provide one for reflectance data collected on museum specimens, and one for reflectance data collected in the field.</p>
+                    <p>
+
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># Can I use Nature's Palette to fulfill data-sharing requirements?</h5>
+                    <p style="text-align: left"> Absolutely! All submissions are given their own DOI and adhere to FAIR principles of data sharing.
+                    Learn more about <a href="https://www.go-fair.org/fair-principles/">FAIR Principles</a>.</p>
+                    <p>
+                        
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># Can I submit my spectral data files even if they are part of a more entensive dataset available elsewhere?</h5>
+                    <p style="text-align: left">  Yes, EXPLAIN HOW DOIs have relationships...</p>
+                    <p>
+
+                    </p>                      
+                    <h5 style="text-align: left; font-weight:bold;"># What happens after I submit my data?</h5>
+                    <p style="text-align: left"> Once the medatada and raw files are uploaded our server runs a first step validation process. In short, it confirms that all mandatory metadata fields contain valid values, and that all submitted spectral files have associated metadata. If your submission passes this first step, you will receive notification by email that your data have been uploaded to the database. They will then be available for discovery by other users. The server then runs a second process that extracts the data from the raw files, assesses if the data contains large negative values which could indicate poor quality data, and calculates visual modeling metrics. These will be used once we develop colourspace search capabilities.</p>
+                    <p>
+                        
+                                      
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># How are the datasets preserved?</h5>
+                    <p style="text-align: left"> Our database is stored on virtual machines provided to us by Compute Canada. As such, data deposited are permanently archived.</p>
+                    <p>
+                    
+                    </p>
+                    <h5 style="text-align: left; font-weight:bold;"># Can I delete or modify my submissions?</h5>
+                    <p style="text-align: left">Data deposited in NP is intended to remain permanently archived and available. 
+                    Removal of a dataset will be rare and only if fully justified by the original contributor.
+                    If you wish to withdraw data from the repository, contact us <a href="/contact">here</a></p>
+            <br>
+                </p>
+
+        </div>
+    </div>
+</div>
+<% include ../views/footer %>

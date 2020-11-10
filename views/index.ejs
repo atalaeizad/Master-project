@@ -1,0 +1,113 @@
+<% include ../views/header %>
+<% include ../views/carousel %>
+<% if (typeof notice !== 'undefined'){ %>
+<div class="col-ms-12 text-center">
+	<div class="alert alert-success" role="alert">
+		<%= notice %>
+	</div>     
+</div>
+<% } %> 
+
+<!--<div class="jumbotron" style="background-image: url(/images/bg1.jpg); background-size: 100% 100%;">
+	<div class="container">
+	  <h1 class="display-3">Nature's Palette</h1>
+	  <h6>An Open-Access Digital Repository of Spectral Data</h6>
+	</div>
+</div>-->
+  <!-- Search, upload, add options
+      ================================================== -->
+ <hr>     
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <!--<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+			-->
+			<h2><i class="fa fa-search fa-3x rounded" style="color: gray;"></i></h2>
+			<a style= "color:teal" href="/search"><h3>Explore Data</h3></a>
+            <p>Find the data you need.</p>
+            <!-- <p><a class="btn btn-secondary" style="background-color: teal;" href="/search" role="button">View details &raquo;</a></p> -->
+		  </div><!-- /.col-lg-4 -->
+		  
+          <div class="col-lg-4">
+           <!-- <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+		   -->
+		   <h2><i class="fa fa-upload fa-3x" style="color: gray;"></i></h2>
+		   <a style= "color:teal" href="/upload/startUpload"><h3>Submit Data</h3></a>
+            <p>Share your data</p>
+            <!-- <p><a class="btn btn-secondary" style="background-color: teal;" href="/upload/startUpload" role="button">View details &raquo;</a></p> -->
+		  </div><!-- /.col-lg-4 -->
+		  
+          <div class="col-lg-4">
+            <!--<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+			-->
+			<h2><i class="fa fa-user-plus fa-3x" style="color: gray;"></i></h2>
+			<a style= "color:teal" href="/login"><h3>Join</h3></a>
+            <p>Not yet a member?</p>
+            <!-- <p><a class="btn btn-secondary" style="background-color: teal;" href="/login" role="button">View details &raquo;</a></p> -->
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+<hr>
+<!--
+<div class="container pt-1"> 
+	<div class="row">
+	  	<div class="col-md-4 text-center" >
+			<div class="card bg-light text-center h-100">
+				<div class="card-block" >
+					<a style= "color:teal" href="/search">
+					<h4 class="card-title">Search Data</h4> </a>
+					<h2><i class="fa fa-search fa-3x rounded" style="color: gray;"></i></h2>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 text-center">
+			<div class="card bg-light text-center h-100" >
+				<div class="card-block" >
+					<a style= "color:teal" href="/upload/startUpload">
+					<h4 class="card-title">Submit Data</h4> </a>
+					<h2><i class="fa fa-upload fa-3x" style="color: gray;"></i></h2>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 text-center" >
+			<div class="card bg-light text-center h-100">
+				<div class="card-block">
+					<a style= "color:teal" href="/searchTerms">
+					<h4 class="card-title">Manage Search Terms</h4> </a>
+					<h2><i class="fa fa-plus-square fa-3x" style="color: gray;"></i></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+<div class="container pt-5">
+		<div class="row">
+			<div class="col ">
+				<h4 style= "color:teal; font-weight:bold" >Why Use Nature's Palette</h4>
+				<hr>
+				<p align="left">• It is an online repository of spectral data that can easily be searched <br>
+				• It can be used to fulfill data-sharing requirements <br>
+				• It is a free service that only requires registration to submit data, not to search or download data  </p>
+			</div>
+		</div>
+</div>
+<hr>
+<div class="container pt-5">
+	<div class="row">
+		<div class="col ">
+			<h4 style= "color:darkred; font-weight:bold" >Frequently Asked Questions</h4>
+			<hr>
+			<p align="left"> Do you have a question about how Nature's Palette works? 
+			Want to learn more about Nature's Palette and how you can contribute? 
+			Read the User FAQ for answers to the most common questions about Nature's Palette...<a href="/questions">see more</a></p>
+		</div>
+	</div>
+</div>
+
+
+<% include ../views/footer %>
+    

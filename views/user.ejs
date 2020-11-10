@@ -1,0 +1,26 @@
+<% include ../views/header %>
+
+<div class="container pt-3">
+<div class="row">
+    <div class="col ">
+                <h3 style="text-align: justify; font-weight:bold;color:teal">User Profile</h3>
+                <hr>
+                <p style="font-size: small;text-align: justify;line-height: 25px;">  
+                    <br>
+                    <h4>You are logged in as <%= user.name %></h4> 
+                    <br>
+                    Your ORCID is <a href="https://orcid.org"><img alt="ORCID logo" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16" hspace="4" /></a> <a href="https://orcid.org/<%= user.orcid %>">https://orcid.org/<%= user.orcid %></a>
+                    <br>
+                </p>
+                <br>
+                <a href="/logout" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">
+                    <img src="https://sandbox.orcid.org/userStatus.json?logUserOut=true" onerror="this.style.display='none'"/>
+                    logout
+                </a>
+                
+    </div>
+</div>
+</div>
+<% include ../views/footer %>
+
+        

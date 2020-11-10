@@ -1,0 +1,82 @@
+<% include ../views/header %>
+
+    
+    <!-- -->
+<div class="container pt-3">
+
+    <% if (typeof message !== 'undefined'){ %>
+        <div class="col-ms-12 text-center">
+            <div class="alert alert-success" role="alert">
+                <%= message %>
+            </div>     
+        </div>
+        <% } %> 
+
+<div class="container">
+    <div style="text-align:center">
+      <h2>Contact Us</h2>
+      <p>Send us a message, we will get back to you as soon as possible</p>
+    </div>
+    <div class="row" >
+        <div class="col-sm">
+            <form style="text-align:left" ref='uploadForm' id='uploadForm' action="" method="" encType="multipart/form-data">
+                <img src="images/map.jpg" style="width:100%">
+
+            </form>
+            <hr>
+            <div class="col-sm">
+                <address>
+                <p><strong>Our Address:</strong></p>
+                <p>
+                    Department of Psychology<br>
+                    Memorial University of Newfoundland<br>
+                    232 Elizabeth Avenue<br>
+                    St. John's, NL, Canada<br>
+                    A1B 3X9
+      
+                <p><strong>General Email addresse</strong></p>
+                <p>
+                    Office:<a href=" naturespalette@mun.ca">  naturespalette@mun.ca</a><br>
+                    </p>
+                </address>
+
+            </div>
+        </div>
+      <div class="col-sm">
+        <form style="text-align:left" ref='uploadForm' id='uploadForm' action="/contact" class="contact-form" method="POST">
+            <fieldset>
+                <label for="fname"> Name</label>
+				<input type="text" name="name" placeholder="name" class="contact-form-input" required />
+                <label for="country">Email</label>
+				<input type="email" name="email" placeholder="email" class="contact-form-input" required />
+                <label for="subject">Subject</label>
+				<textarea name="message" class="contact-form-input" placeholder="MESSAGE" required style="height:170px"></textarea>
+			
+				<button type="submit" id="uploadFormSubmitButton" class="multi-form-submit-btn">send</button>
+           
+            <fieldset>
+		</form>
+        <br>
+        </div>
+</div>
+        <script>
+            function submitEmailForm(form) {
+                var obj = new XMLHttpRequest();
+                obj.onreadystatechange = function(){
+                    if(obj.readyState == 4){
+                        if(obj.status == 200){
+                            var res = JSON.parse(obj.responseText);
+                            alert(res.message);
+                        }
+                        else{
+                            alert("XMLHttp status " + obj.status + ": " + obj.statusText);
+                        }
+                    }
+                };
+                obj.open("post", form.action, true);
+                obj.setRequestHeader("Content-Type", "application/json"); // NOTICE: "application/json"
+                obj.send(JSON.stringify({ name: form.name.value, email: form.email.value, message: form.message.value }));
+                return false;
+            }
+        </script>
+<% include ../views/footer %>
